@@ -1,12 +1,12 @@
-/* General Styles */
+
 body, html {
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* Prevents horizontal scrolling */
+    overflow-x: hidden; 
     width: 100%;
 }
 
-/* Top Bar */.top-bar {
+.top-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -18,27 +18,25 @@ body, html {
     width: 100%;
     top: 0;
     z-index: 1000;
-    height: 50px;  /* Ensures proper height */
+    height: 50px; 
 }
 
 
-/* 🔹 Contact Info (Left Side) */
+
 .contact-info {
     display: flex;
     gap: 15px;
     flex-grow: 1;
 }
-/* Contact Info Styling */
 
-/* Contact Info (Only White Text, No Box) */
 .contact-info {
     display: flex;
     gap: 20px;
     font-weight: bold;
     font-size: 18px;
-    color: #ffffff; /* White text */
+    color: #ffffff;
 }
-/* Contact Text */
+
 .contact-info span {
     padding: 8px 15px;
     border-radius: 25px;
@@ -49,21 +47,21 @@ body, html {
     align-items: center;
     gap: 10px;
     justify-content: center;
-    font-size: 18px; /* Make text larger */
+    font-size: 18px; 
     border: 2px solid white;
 }
 .top-bar span:first-child {
     display: none;
 }
 
-/* Ensure "Enquire Now" text is visible */
+
 .contact-info span:first-child {
     display: inline;
     font-weight: bold;
-    color: #ffffff; /* White text */
+    color: #ffffff; 
 }
 
-/* Location Button */
+
 .location-btn {
     background-color: transparent; /* No background */
     color: #ffffff; /* White text */
@@ -83,7 +81,7 @@ body, html {
 
 
 
-/* Main Header */
+
 /* Main Header */
 .main-header {
     display: flex;
@@ -92,24 +90,23 @@ body, html {
     background: #ffffff;
     padding: 10px 20px;
     border-bottom: none;
-    margin-top: 50px; /* Ensures it does not overlap with the top bar */
+    margin-top: 50px; 
 }
-/* Make Logo Bigger */
+
 .logo img {
-    height: 120px;  /* Increase height */
-    width: auto;   /* Maintain aspect ratio */
+    height: 120px;  
+    width: auto;   
 }
 .logo {
-    flex: 1; /* Allows the logo to take up necessary space */
+    flex: 1; 
 }
-/* Navigation Styling */
-/* 🔹 Navigation Bar - Remove Bottom Border */
+
 nav {
     width: 100%;
-    background-color: #ffffff; /* Keep the background color */
-    padding: 15px 0; /* Adjust padding */
-    box-shadow: none; /* Removes any shadow if applied */
-    border-bottom: none; /* ✅ Removes the bottom border */
+    background-color: #ffffff; 
+    padding: 15px 0; 
+    box-shadow: none; 
+    border-bottom: none; 
 }
 
 /* 🔹 Navigation Bar */
@@ -117,7 +114,7 @@ nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
-    gap: 30px; /* 🔥 Space between menu items */
+    gap: 30px; 
     margin: 0;
     padding: 0;
     position: relative;
@@ -129,7 +126,7 @@ nav ul {
     position: relative;
 }
 
-/* 🔹 Hide Dropdown Menus by Default */
+
 .dropdown-menu {
     display: none;
     position: absolute;
@@ -142,7 +139,7 @@ nav ul {
     z-index: 1000;
 }
 
-/* 🔹 Dropdown Menu Items */
+
 .dropdown-menu li {
     list-style: none;
     padding: 10px;
@@ -161,40 +158,40 @@ nav ul {
     color: #fffefe;
 }
 
-/* 🔹 Show Dropdown on Hover */
+
 .dropdown:hover .dropdown-menu {
     display: block;
 }
-/* 🔹 Navigation Menu */
+
 nav {
-    flex-grow: 1; /* 🔥 Allows menu to occupy available space */
+    flex-grow: 1; 
     display: flex;
-    justify-content: center; /* 🔥 Centers the menu */
+    justify-content: center;
     
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    gap: 50px; /* 🔥 Adjust spacing between menu items */
+    gap: 50px; 
     margin: 0;
     padding: 0;
 }
 
-/* 🔹 Navigation Menu Items */
+
 nav ul li a {
     color: #000000;
     text-decoration: none;
     font-weight: bold;
-    font-size: 20px; /* 🔥 Increased font size */
+    font-size: 20px;
     padding: 10px 15px;
 }
 
-/* 🔹 Hover Effect */
+
 nav ul li a:hover {
     color: #ee2323;
 }
-/* 🔴 Pay Now Button (on Right Side) */
+
 .pay-now-btn {
     background-color: #000000;
     color: #ffffff;
@@ -204,7 +201,7 @@ nav ul li a:hover {
     border-radius: 10px;
     font-weight: bold;
     cursor: pointer;
-    margin-left: 200px; /* ✅ Moves the button slightly to the right */
+    margin-left: 200px; 
 }
 
 .pay-now-btn:hover {
@@ -212,7 +209,7 @@ nav ul li a:hover {
     color: #ee2323;
     border: 2px solid #ee2323;
 }
-/* Hero Section (Slider) */
+
 .hero {
     width: 100vw;
     height: 100vh;
@@ -220,7 +217,7 @@ nav ul li a:hover {
     position: relative;
 }
 
-/* Slider Container */
+
 .slider-container {
     position: relative;
     overflow: hidden;
@@ -231,7 +228,7 @@ nav ul li a:hover {
 .slider {
     display: flex;
     transition: transform 0.5s ease-in-out;
-    width: 400%; /* Assuming 4 slides */
+    width: 400%; 
 }
 
 .slide {
@@ -255,7 +252,7 @@ nav ul li a:hover {
 .next-btn { right: 10px; }
 
 
-/* Navigation Buttons */
+
 .prev-btn, .next-btn {
     position: absolute;
     top: 49%;
@@ -279,7 +276,7 @@ nav ul li a:hover {
 
 
 
-/* Courses Section */
+
 .courses-section {
     padding: 50px 20px;
     text-align: center;
@@ -346,7 +343,7 @@ nav ul li a:hover {
     background-color: #b91c1c;
 }
 
-/* Initially Hide Extra Course Details */
+
 .course-details {
     display: none;
     font-size: 14px;
@@ -358,9 +355,7 @@ nav ul li a:hover {
     text-align: left;
 }
 
-/* IT Scholars Program Section */
 
-/* Header */
 header {
     display: flex;
     justify-content: space-between;
@@ -386,10 +381,10 @@ nav ul li a {
     font-weight: bold;
 }
 
-/* General Layout Styling */
+
 .content-section {
-    margin: 0; /* Removed all margin */
-    padding: 0; /* Removed all padding */
+    margin: 0; 
+    padding: 0; 
     background-color: #f9f9f9;
   }
   
@@ -398,7 +393,7 @@ nav ul li a {
     align-items: center;
     justify-content: space-between;
     gap: 20px;
-    padding: 20px 0; /* Added padding between text and images */
+    padding: 20px 0; 
   }
   
   .content-text {
@@ -422,31 +417,31 @@ nav ul li a {
   .content-images {
     flex: 1;
     display: grid;
-    gap: 20px; /* Spacing between images */
-    grid-template-columns: 1fr 1fr; /* Two columns */
+    gap: 20px;
+    grid-template-columns: 1fr 1fr; 
   }
   
   .content-images img {
-    width: 300px; /* Increased width */
-    height: 300px; /* Increased height */
+    width: 300px;
+    height: 300px; 
     object-fit: contain;
     border: 2px solid transparent;
     border-radius: 8px;
-    transition: all 0.3s ease; /* Smooth hover effect */
+    transition: all 0.3s ease; 
   }
   
   .content-images img:hover {
-    border-color: red; /* Red border on hover */
-    transform: scale(1.1); /* Slight zoom effect */
+    border-color: red;
+    transform: scale(1.1); 
     box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
   }
   
-  /* Remove gap between slider and section */
+  
   .slider-container + .content-section {
-    margin-top: 0; /* No margin between slider and this section */
+    margin-top: 0; 
   }
   
-  /* Chat Popup */
+  
   .chat-popup {
     position: fixed;
     bottom: 20px;
@@ -508,7 +503,7 @@ nav ul li a {
     background-color: darkred;
   }
   
-  /* Testimonials */
+  
 /* Testimonials */
 .testimonials {
     background-color: #f9f9f9;
@@ -524,17 +519,17 @@ nav ul li a {
 
 .testimonials-container {
     display: flex;
-    flex-direction: row; /* Ensure items are placed in a row */
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
-    justify-content: center; /* Center-align items */
-    gap: 20px; /* Add spacing between items */
+    flex-direction: row;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 20px;
 }
 
 .testimonial {
     background: #fff;
     border: 1px solid #ddd;
-    border-radius: 0px; /* Remove rounded corners for rectangle */
-    width: 350px; /* Slightly wider for a more rectangular look */
+    border-radius: 0px; 
+    width: 350px; 
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
@@ -548,13 +543,13 @@ nav ul li a {
     transform: scale(1.05);
 }
 
-/* Ensure image maintains original aspect ratio */
+
 .testimonial img {
-    width: auto; /* Auto width to keep original aspect */
-    height: auto; /* Auto height to keep original aspect */
-    max-width: 100%; /* Prevent overflowing */
-    max-height: 200px; /* Optional: Limit height without cropping */
-    border-radius: 0px; /* Keep rectangle shape */
+    width: auto; 
+    height: auto; 
+    max-width: 100%; 
+    max-height: 200px; 
+    border-radius: 0px; 
     margin-bottom: 15px;
 }
 
