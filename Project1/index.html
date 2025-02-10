@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innomatics Clone</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  
+
+  
+<div class="top-bar">
+    <div class="contact-info">
+        <span>
+            Hyd: 9951666670
+            <button class="location-btn">Call</button>
+        </span>
+        <span>
+            Pune: 9951666671
+            <button class="location-btn">Call</button>
+        </span>
+        <span>
+            Bengaluru: 9951666672
+            <button class="location-btn">Call</button>
+        </span>
+    </div>
+</div>
+
+
+
+    <!-- Header Section -->
+    <header>
+        <div class="top-bar">
+          
+          
+            <div class="contact-info">
+                <span class="enquire-text">Enquire Now:</span>
+                
+                <span>Hyd: 9951666670</span>
+                <span>Pune: 📞9951666671</span>
+                <span>Bengaluru: 📞9951666672</span>
+            </div>
+        </div>
+        <div class="main-header">
+            <div class="logo">
+                <img src="images/logo.png" alt="Innomatics Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    
+                    <!-- Courses Dropdown -->
+                    <li class="dropdown">
+                        <a href="#courses">Courses ▾</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Data Science</a></li>
+                            <li><a href="#">Full Stack Development</a></li>
+                            <li><a href="#">Digital Marketing</a></li>
+                          
+                        </ul>
+                    </li>
+                    <li><a href="#it-scholars">IT Scholars Program</a></li>
+                    <!-- Internship Dropdown -->
+                    <li class="dropdown">
+                        <a href="#internship">Internship ▾</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Full Stack Internship</a></li>
+                            <li><a href="#">Generative AI Internship</a></li>
+                            <li><a href="#">Data Science Internship</a></li>
+                            <li><a href="#">Summer Internship</a></li>
+                        </ul>
+                    </li>
+            
+                  
+                    <!-- About Us Dropdown -->
+                    <li class="dropdown">
+                        <a href="#about">About Us ▾</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Our Story</a></li>
+                            <li><a href="#">Vision & Mission</a></li>
+                            <li><a href="#">Our Team</a></li>
+                        </ul>
+                    </li>
+                    
+                     <!-- Events Dropdown -->
+                     <li class="dropdown">
+                        <a href="#events">Events ▾</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">AI Bootcamp</a></li>
+                            <li><a href="#">Data Science Webinar</a></li>
+                            <li><a href="#">Campus Ambassador</a></li>
+                        </ul>
+                    </li>
+            
+            
+                    <!-- Pay Now Button -->
+                    <li><button class="pay-now-btn">₹ Pay Now</button></li>
+                </ul>
+            </nav>
+            
+        </div>
+    </header>
+    
+    
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        
+        <section class="hero-slider">
+            <div class="slider-container">
+                <div class="slider">
+                    <div class="slide">
+                        <img src="images/slide1.jpg" alt="Slide 1">
+                    </div>
+                    <div class="slide">
+                        <img src="images/slide2.jpg" alt="Slide 2">
+                    </div>
+                    <div class="slide">
+                        <img src="images/slide3.jpg" alt="Slide 3">
+                    </div>
+                    <div class="slide">
+                        <img src="images/slide4.jpg" alt="Slide 4">
+                    </div>
+                </div>
+               
+                <button class="prev-btn">❮</button>
+                <button class="next-btn">❯</button>
+            </div>
+
+
+<!-- Section Layout -->
+<div class="content-section">
+    <div class="content-container">
+      <div class="content-text">
+        <h1>We just don’t train, We transform the careers</h1>
+        <p>
+          Innomatics Research Labs is a pioneer in “Transforming Careers and Lives” of 
+          individuals in the Digital Space by catering advanced training on 
+          <b>NASSCOM Future Skills Prime Certified Data Science, Python, Predictive Analytics Modeler, 
+          Machine Learning, Artificial Intelligence (AI), Generative AI, Full-stack web development</b> 
+          and Career Launching program for students who are willing to showcase their skills 
+          in the competitive job market with valuable credentials, and also can complete courses 
+          with a certificate.
+        </p>
+        <p><b>NASSCOM Futureskills Prime Registered Business Partner</b></p>
+        <p>
+          As an authorized NASSCOM FutureSkills Prime Training Partner dedicated to providing 
+          practical and real-world learning experiences, our training includes case studies 
+          and business challenges to ensure job-ready skills. We also organize regular hackathons, 
+          workshops, and meetups to enhance learning and productivity. With a dedicated placement 
+          team, we partner with over <b>100 companies</b> to match them with skilled professionals, 
+          helping businesses grow while shaping successful careers.
+        </p>
+        <p><b>Best EdTech Company</b></p>
+        <p>
+          Recognized by Times of India as the Best Training Institute in Hyderabad for Data 
+          Science and Full-stack programs.
+        </p>
+      </div>
+      <div class="content-images">
+        <img src="images/global-leaders-icon.png" alt="Global Leaders">
+        <img src="images/practical-approach-icon.png" alt="Practical Approach">
+        <img src="images/internship-icon.png" alt="Internship">
+        <img src="images/placement-icon.png" alt="Placement">
+      </div>
+    </div>
+  </div>
+  
+  <!-- Chat Popup -->
+  <div class="chat-popup">
+    <button class="chat-icon" onclick="toggleChat()">
+      <img src="images/chat-icon.png" alt="Chat">
+    </button>
+    <div class="chat-form" id="chatForm">
+      <h3>Fill out the form below to start chat with us.</h3>
+      <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Your Name" required>
+        
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone" placeholder="Your Phone" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Your Email" required>
+        
+        <label for="course">Select the Course:</label>
+        <select id="course" name="course">
+          <option>Advanced Data Science with Python</option>
+          <option>Full Stack Development</option>
+          <option>Advanced Generative AI</option>
+          <option>IT Scholars Program</option>
+        </select>
+        
+        <button type="submit">Start Chat</button>
+      </form>
+    </div>
+  </div>
+  
+<!-- Courses Section -->
+<div class="courses-section">
+    <h2>Our Courses</h2>
+    <div class="courses-container">
+        <div class="course">
+            <img src="images/course1.jpg" alt="Course 1">
+            <h3>NASSCOM Futureskills Prime Certified Data Science</h3>
+            <p>This is a great choice for tech geeks, students, working professionals and aspiring data scientists who want to upskill and build a better foundation is the stream of Data Science.</p>
+            <button class="read-more-btn" onclick="showMore(1)">Read More</button>
+            <div class="course-details" id="course1">
+                <p>Data Science covers statistics, Python, ML, and real-world projects.</p>
+            </div>
+        </div>
+        <div class="course">
+            <img src="images/course2.jpg" alt="Course 2">
+            <h3>Full Stack Development</h3>
+            <p>Learn the right skills to break into a development career & advance yourself as a full-stack Developer. It includes Frontend, Backend, databases, debugging & testing.</p>
+            <button class="read-more-btn" onclick="showMore(2)">Read More</button>
+            <div class="course-details" id="course2">
+                <p>Learn HTML, CSS, JavaScript, React, Node.js, and full-stack development.</p>
+            </div>
+        </div>
+        <div class="course">
+            <img src="images/course3.jpg" alt="Course 3">
+            <h3>Generative AI</h3>
+            <p>Generative AI Course at Innomatics is perfect for students, job seekers, entrepreneurs, and professionals who want to learn the latest AI tools and skills to grow in their careers.</p>
+            <button class="read-more-btn" onclick="showMore(3)">Read More</button>
+            <div class="course-details" id="course3">
+                <p>Explore supervised and unsupervised learning with Python.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+  
+ 
+    
+  
+    
+
+
+<section class="advantages-section">
+    <div class="container">
+      <div class="content">
+        <!-- Left Column -->
+        <div class="advantages">
+          <h2>Advantages of training at Innomatics</h2>
+          <ul>
+            <li>Flexible Online Live and Classroom Training</li>
+            <li>100% Internship guarantee program</li>
+            <li>Dedicated Placement vertical</li>
+            <li>Mastery level certifications that are globally accepted</li>
+            <li>Backup Classes & Lifetime LMS access</li>
+            <li>Completely Practical Oriented Approach</li>
+            <li>Hands-on training on the capstone projects</li>
+            <li>Bi-weekly connects from industry experts</li>
+            <li>Domain Teach back and Reverse Presentations</li>
+            <li>Free Technical Support & Individual Career Counselling</li>
+            <li>Expert mentoring Weekly Tests & Assignments</li>
+            <li>Mock-up Exams, and Interviews</li>
+            <li>Meet-ups, Workshops, Hackathons & Conferences</li>
+            <li>Exclusive programs for Non-IT professionals</li>
+          </ul>
+        </div>
+  
+        <!-- Right Column -->
+        <div class="video">
+          <h2>Let's Watch a Video Bite From Our Institute</h2>
+          <iframe 
+            width="560" 
+            height="315" 
+            src="https://www.youtube.com/embed/OKUFrW40xyI?start=3" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+          <div class=custom-watch-more >
+          <div style="margin-top: 15px;">
+            <a 
+                href="https://www.youtube.com/channel/UC9G7o2iVkKJDhquyCT7Va2g" 
+                target="_blank" 
+                
+            >
+                Watch More Videos
+            </a>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
+<!-- Testimonial Section -->
+<section class="testimonials">
+    <h2>What Our Students Say</h2>
+    <div class="testimonials-container">
+        <div class="testimonial">
+            <img src="images/student1.jpg" alt="Student 1">
+          
+        </div>
+        <div class="testimonial">
+            <img src="images/student2.jpg" alt="Student 2">
+           
+        </div>
+        <div class="testimonial">
+            <img src="images/student3.jpg" alt="Student 3">
+            
+        </div>
+        <div class="testimonial">
+            <img src="images/student4.jpg" alt="Student 4">
+            
+        </div>
+    </div>
+</section>
+
+
+  
+
+
+    <!-- Blog Preview Section -->
+    <section class="blog-section">
+        <h2>Read Latest Business News & Blog Updates</h2>
+        <div class="blogs-container">
+          
+          <div class="blog-card">
+            <img src="images/blog1.jpg" alt="OOPS Concepts in Python">
+            
+          </div>
+      
+        
+          <div class="blog-card">
+            <img src="images/blog2.jpg" alt="Real-world Applications of Data Science">
+          
+          </div>
+      
+         
+          <div class="blog-card">
+            <img src="images/blog3.jpg" alt="Why should you join Innomatics?">
+           
+          </div>
+        </div>
+      </section>
+
+
+   <!-- Footer Section -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-about">
+            <img src="images/logo1.png" alt="Innomatics Logo" class="footer-logo">
+            <p>
+                A leading training institute, <strong>Innomatics Research Labs</strong> offers courses in areas such as NASSCOM Futureskills Prime Certified 
+                <strong>Data Science</strong>, Python, AI, Data Analytics, <strong>Full Stack Development</strong>, and Generative AI. Our practical training is designed 
+                meticulously to meet industry needs and provide valuable certification upon completion, empowering individuals to excel in their careers.
+            </p>
+            <div class="social-icons">
+                <a href="#" class="icon"><img src="images/linkedin.png" alt="LinkedIn"></a>
+                <a href="#" class="icon"><img src="images/facebook.png" alt="Facebook"></a>
+                <a href="#" class="icon"><img src="images/instagram.png" alt="Instagram"></a>
+                <a href="#" class="icon"><img src="images/twitter.png" alt="Twitter"></a>
+                <a href="#" class="icon"><img src="images/youtube.png" alt="YouTube"></a>
+            </div>
+        </div>
+        <div class="footer-courses">
+            <h3>   Courses</h3>
+            <ul>
+                <li><a href="#">Data Science</a></li>
+                <li><a href="#">Online Data Science</a></li>
+                <li><a href="#">Advanced Generative AI</a></li>
+                <li><a href="#">Full Stack Web Developer</a></li>
+                <li><a href="#">Digital Marketing</a></li>
+                <li><a href="#">Placements</a></li>
+                <li><a href="#">Partner with us</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+            </ul>
+        </div>
+        <div class="footer-contact">
+            <h3>Contact Us:</h3>
+            <p><strong>Kukatpally — Hyderabad</strong><br>
+                #205, 2nd Floor, Fortune Signature, Near JNTU Metro Station, Kukatpally, Hyderabad, Telangana 500085<br>
+                Call us: +91-9951666670
+            </p>
+            <p><strong>Pune</strong><br>
+                2nd Floor, Sai Sayaji Apartment, 201 Paud Rd, beside VANAZ Metro, above Bata showroom, Ramkrishna Paramhans Nagar, Kothrud, Pune, Maharashtra 411038<br>
+                Call us: +91-9951666671
+            </p>
+            <p><strong>Bengaluru</strong><br>
+                NO.576/B, 3rd FLOOR, Swetha Arcade, Service Road, 100 FT ROAD, 6TH SECTOR, Hsr Layout, Bengaluru, Karnataka 560068<br>
+                +91-9951666672
+            </p>
+            <p><strong>Phone/Whatsapp:</strong><br>
+                +91-9951666670 / +91-9951666671
+            </p>
+            <p><strong>Email Us:</strong><br>
+                <a href="mailto:admissions@innomatics.in">admissions@innomatics.in</a>
+            </p>
+        </div>
+    </div>
+</footer>
+<script src="js/script.js"></script>
+<footer class="site-footer">
+    <p>© 2024 Innomatics Research Labs Pvt Ltd, All rights reserved???/</p>
+  </footer>
+  
+
+</body>
