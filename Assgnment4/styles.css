@@ -38,6 +38,7 @@ nav {
     justify-content: space-between;
     width: 100%;
     box-sizing: border-box;
+    flex-wrap: wrap;
 }
 
 nav .logo {
@@ -190,10 +191,10 @@ li a {
 
 .product {
     border: 1px solid #ddd;
-    padding: 15px;
+    padding: 10px;
     text-align: center;
     width: 200px;
-    border-radius: 5px;
+    border-radius: 10px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .product:hover {
@@ -201,12 +202,13 @@ li a {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 .product img {
-    width: 200px;  /* Set a fixed width */
-    height: 200px; /* Set a fixed height */
-    object-fit: contain; /* Ensure full image is visible without cropping */
+    width: 100%;  /* Makes sure it adjusts to container */
+    height: 200px; /* Fixed height for uniformity */
+    object-fit: contain; /* Ensures full image is visible */
+    border-radius: 5px;
     display: block;
-    margin: auto;
-    border-radius: 10px;
+    margin: auto; /* Centers the image */
+    background-color: white; /* Prevents gaps if image has transparency */
 }
 
 
@@ -490,4 +492,10 @@ button:hover {
     .cart-item img {
         margin-bottom: 5px;
     }
+}
+.product-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust grid */
+    gap: 15px;
+    padding: 20px;
 }
