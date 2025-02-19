@@ -8,7 +8,7 @@ body {
     background-color: #1a1a1a;
     color: #fff;
     overflow: hidden;
-    background-image: url('https://media.giphy.com/media/OK5LK5zLFfdm/giphy.gif?cid=790b7611t1ytbnt54yy5von9wkjtggmiic0id9gwxm3l998z&ep=v1_gifs_search&rid=giphy.gif&ct=g');
+    background-image: url('https://media.giphy.com/media/gFhZjOtzoutSvckWPM/giphy.gif?cid=ecf05e47srtb3wo0jkedzh8rv760y15c50laiw5o8ijwj9ue&ep=v1_gifs_search&rid=giphy.gif&ct=g');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -149,5 +149,3 @@ button:hover {
         box-shadow: 0 0 30px #ff00ff;
     }
 }
-
-/* Automatically play menu sound on page load */
