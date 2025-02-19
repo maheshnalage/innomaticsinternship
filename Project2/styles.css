@@ -95,19 +95,12 @@ button:hover {
 }
 
 .card.matched {
-    background-color: #e74c3c;
+    background-color: #2ecc71;
 }
 
 .score, .timer {
     font-size: 1.5rem;
     margin: 10px;
-}
-
-.game-over {
-    text-align: center;
-    margin-top: 20px;
-    color: red;
-    text-shadow: 0 0 10px red;
 }
 
 .win-message {
