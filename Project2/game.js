@@ -1,4 +1,4 @@
-// Audio files for various events  
+// Audio files for various events
 let flipSound = new Audio('flip-sound.mp3');
 let matchSound = new Audio('match-sound.mp3');
 let countdownSound = new Audio('countdown-sound.mp3');
@@ -13,8 +13,8 @@ const categories = {
     fruits: ['🍎', '🍌', '🍇', '🍍', '🍉', '🍓', '🍑', '🍒'],
     emojis: ['😊', '😂', '😍', '😎', '🥺', '😭', '😜', '😏'],
     animals: ['🐶', '🐱', '🐹', '🐯', '🦁', '🐵', '🐧', '🐰'],
-    planets: ['🌗', '🌑', '🌕', '🌞', '🧬', '🌙', '🌒', '🌍'],
-    country: ['🇮🇳🕌', '🇺🇸🗽', '🇬🇧🏰', '🇮🇹🍕', '🇯🇵🏸', '🇨🇦🍁', '🇨🇳🐉', '🇰🇷🥤']
+    planets: ['🌗', '🌑', '🌕', '🌞', '🪐', '🌙', '🌒', '🌍'],
+    country: ['🇮🇳🕌', '🇺🇸🗽', '🇬🇧🏰', '🇮🇹🍕', '🇯🇵🎌', '🇨🇦🍁', '🇨🇳🐉', '🇰🇷🥢']
 };
 
 let gameGrid = [];
@@ -31,13 +31,16 @@ function showGameMenu() {
     document.querySelector('.game-container').style.display = 'none';
     document.querySelector('.game-over').style.display = 'none';
 
+    // Ensure menu music plays when the menu is visible
     menuMusic.currentTime = 0; // Restart music
     menuMusic.play().catch(error => console.log('Audio playback failed:', error));
 }
 
 // Start the game with the selected category
 function startGame(category) {
-    menuMusic.pause();
+    menuMusic.pause(); // Stop menu music when the game starts
+
+    // Reset game state
     gameGrid = createGameGrid(category);
     gameGrid = shuffle(gameGrid);
     flippedCards = [];
@@ -45,7 +48,10 @@ function startGame(category) {
     score = 0;
     countdownWarningPlayed = false;
 
+    // Render cards
     renderCards(gameGrid);
+
+    // Update UI
     document.querySelector('.landing-page').style.display = 'none';
     document.querySelector('.game-container').style.display = 'block';
 
@@ -54,6 +60,7 @@ function startGame(category) {
     document.getElementById('time').innerText = timeRemaining;
     document.getElementById('time').classList.remove('warning');
 
+    // Start the timer
     startTimer();
 }
 
@@ -70,7 +77,7 @@ function shuffle(array) {
 // Render the cards on the screen
 function renderCards(grid) {
     const container = document.getElementById('cards-container');
-    container.innerHTML = '';
+    container.innerHTML = '';  // Clear any previous cards
 
     grid.forEach((item, index) => {
         const card = document.createElement('div');
@@ -84,12 +91,16 @@ function renderCards(grid) {
 
 // Handle card clicks and flip logic
 function handleCardClick(event) {
-    flipSound.play();
+    flipSound.play(); // Play flip sound
+
     const card = event.target;
+
+    // Prevent flipping if already flipped or matched
     if (flippedCards.length < 2 && !card.classList.contains('flipped') && !card.classList.contains('matched')) {
         card.classList.add('flipped');
         card.innerText = card.getAttribute('data-value');
         flippedCards.push(card);
+
         if (flippedCards.length === 2) {
             checkForMatch();
         }
@@ -100,7 +111,7 @@ function handleCardClick(event) {
 function checkForMatch() {
     const [firstCard, secondCard] = flippedCards;
     if (firstCard.getAttribute('data-value') === secondCard.getAttribute('data-value')) {
-        matchSound.play();
+        matchSound.play();  // Play match sound
         firstCard.classList.add('matched');
         secondCard.classList.add('matched');
         score += 10;
@@ -116,6 +127,7 @@ function checkForMatch() {
             flippedCards = [];
         }, 1000);
     }
+
     checkForGameOver();
 }
 
@@ -123,7 +135,7 @@ function checkForMatch() {
 function checkForGameOver() {
     if (matchedCards.length === gameGrid.length) {
         clearInterval(timerInterval);
-        gameOver(true);
+        gameOver(true);  // Game Over - You Win
     }
 }
 
@@ -133,28 +145,34 @@ function startTimer() {
         timeRemaining--;
         document.getElementById('time').innerText = timeRemaining;
 
+        // Trigger warning sound if time is less than or equal to 10 seconds
         if (timeRemaining <= 10 && !countdownWarningPlayed) {
             countdownSound.play();
             countdownWarningPlayed = true;
-            document.getElementById('time').classList.add('warning');
+            document.getElementById('time').classList.add('warning');  // Change timer to warning color
         }
 
         if (timeRemaining === 0) {
             clearInterval(timerInterval);
-            gameOver(false);
+            gameOver(false);  // Game Over - Time's Up
         }
     }, 1000);
 }
 
 // End the game and show Game Over screen with animation
 function gameOver(win) {
-    gameOverSound.play();
+    gameOverSound.play();  // Play game over sound
     const gameOverScreen = document.querySelector('.game-over');
     gameOverScreen.style.display = 'block';
-    gameOverScreen.classList.add(win ? 'win-message' : 'game-over');
+    gameOverScreen.classList.add('game-over-animation');  // CSS class for animation
     document.querySelector('.game-container').style.display = 'none';
     document.getElementById('final-score').innerText = score;
     document.getElementById('game-over-message').innerText = win ? 'You Win!' : 'Game Over';
+    if (win) {
+        gameOverScreen.classList.add('win');
+    } else {
+        gameOverScreen.classList.remove('win');
+    }
 }
 
 // Restart the game
