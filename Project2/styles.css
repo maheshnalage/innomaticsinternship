@@ -73,7 +73,7 @@ button:hover {
     grid-gap: 10px;
     margin-top: 20px;
     width: 100%;
-    max-width: 800px;
+    max-width: 1000px;
 }
 
 .card {
@@ -83,7 +83,7 @@ button:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2.5rem;
+    font-size: 3rem;
     color: white;
     cursor: pointer;
     border-radius: 8px;
@@ -92,12 +92,10 @@ button:hover {
 
 .card.flipped {
     background-color: #2ecc71;
-    transform: scale(1.1);
 }
 
 .card.matched {
     background-color: #e74c3c;
-    transform: scale(1.1);
 }
 
 .score, .timer {
@@ -132,7 +130,7 @@ button:hover {
 @media (max-width: 768px) {
     .cards-container {
         grid-template-columns: repeat(4, 1fr);
-        max-width: 90%;
+        max-width: 100%;
     }
 }
 
