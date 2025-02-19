@@ -87,17 +87,19 @@ button:hover {
     color: white;
     cursor: pointer;
     border-radius: 8px;
-    transition: transform 0.5s ease, background-color 0.5s ease;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card.flipped {
     background-color: #2ecc71;
     transform: scale(1.1);
+    box-shadow: 0 0 20px #2ecc71;
 }
 
 .card.matched {
     background-color: #e74c3c;
     transform: scale(1.1);
+    box-shadow: 0 0 20px #e74c3c;
 }
 
 .score, .timer {
@@ -131,13 +133,13 @@ button:hover {
 
 @media (max-width: 768px) {
     .cards-container {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
     }
 }
 
 @media (max-width: 480px) {
     .cards-container {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
     }
 }
 
