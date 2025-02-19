@@ -1,4 +1,4 @@
-// Audio files for various events 
+// Audio files for various events  
 let flipSound = new Audio('flip-sound.mp3');
 let matchSound = new Audio('match-sound.mp3');
 let countdownSound = new Audio('countdown-sound.mp3');
@@ -182,3 +182,6 @@ function exitGame() {
 
 // Initialize the game menu on page load
 window.addEventListener('DOMContentLoaded', showGameMenu);
+window.addEventListener('load', () => {
+    menuMusic.play().catch(error => console.log('Audio playback failed:', error));
+});
