@@ -108,6 +108,15 @@ button:hover {
     margin-top: 20px;
     color: #2ecc71;
     text-shadow: 0 0 10px #2ecc71;
+    animation: winGlow 1.5s infinite alternate;
+}
+
+.game-over {
+    text-align: center;
+    margin-top: 20px;
+    color: red;
+    text-shadow: 0 0 10px red;
+    animation: gameOverGlow 1.5s infinite alternate;
 }
 
 .exit-btn {
@@ -140,5 +149,23 @@ button:hover {
     }
     to {
         box-shadow: 0 0 30px #ff00ff;
+    }
+}
+
+@keyframes winGlow {
+    from {
+        box-shadow: 0 0 20px #2ecc71;
+    }
+    to {
+        box-shadow: 0 0 30px #27ae60;
+    }
+}
+
+@keyframes gameOverGlow {
+    from {
+        box-shadow: 0 0 20px red;
+    }
+    to {
+        box-shadow: 0 0 30px darkred;
     }
 }
