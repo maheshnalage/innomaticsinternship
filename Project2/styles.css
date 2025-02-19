@@ -119,6 +119,12 @@ button:hover {
     animation: gameOverGlow 1.5s infinite alternate;
 }
 
+.game-over.win {
+    color: #2ecc71;
+    text-shadow: 0 0 10px #2ecc71;
+    animation: winGlow 1.5s infinite alternate;
+}
+
 .exit-btn {
     margin-top: 20px;
     background-color: #e74c3c;
@@ -169,3 +175,4 @@ button:hover {
         box-shadow: 0 0 30px darkred;
     }
 }
+
