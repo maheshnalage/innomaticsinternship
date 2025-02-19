@@ -1,0 +1,151 @@
+body {
+    font-family: 'Press Start 2P', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #1a1a1a;
+    color: #fff;
+    overflow: hidden;
+    background-image: url('https://media.giphy.com/media/gFhZjOtzoutSvckWPM/giphy.gif?cid=ecf05e47srtb3wo0jkedzh8rv760y15c50laiw5o8ijwj9ue&ep=v1_gifs_search&rid=giphy.gif&ct=g');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+header {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #00f, 0 0 20px #0ff;
+}
+
+.landing-page {
+    text-align: center;
+    padding: 40px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+    color: white;
+    box-shadow: 0 0 20px #0ff;
+    animation: pulseGlow 2s infinite alternate;
+    width: 60vw;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    margin: 10px;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    background-color: #ff00ff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px #ff00ff;
+}
+
+button:hover {
+    background-color: #ff1493;
+    box-shadow: 0 0 20px #ff1493;
+    transform: scale(1.1);
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    background-color: #222;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-gap: 10px;
+    margin-top: 20px;
+}
+
+.card {
+    width: 100px;
+    height: 100px;
+    background-color: #3498db;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: transform 0.5s ease, background-color 0.5s ease;
+}
+
+.card.flipped {
+    background-color: #2ecc71;
+    transform: scale(1.1);
+}
+
+.card.matched {
+    background-color: #e74c3c;
+    transform: scale(1.1);
+}
+
+.score, .timer {
+    font-size: 1.5rem;
+    margin: 10px;
+}
+
+.game-over {
+    text-align: center;
+    margin-top: 20px;
+    color: red;
+    text-shadow: 0 0 10px red;
+}
+
+.win-message {
+    text-align: center;
+    margin-top: 20px;
+    color: #2ecc71;
+    text-shadow: 0 0 10px #2ecc71;
+}
+
+.exit-btn {
+    margin-top: 20px;
+    background-color: #e74c3c;
+    font-size: 1.2rem;
+}
+
+.exit-btn:hover {
+    background-color: #c0392b;
+}
+
+@media (max-width: 768px) {
+    .cards-container {
+        grid-template-columns: repeat(3, 100px);
+    }
+}
+
+@media (max-width: 480px) {
+    .cards-container {
+        grid-template-columns: repeat(2, 100px);
+    }
+}
+
+@keyframes pulseGlow {
+    from {
+        box-shadow: 0 0 20px #0ff;
+    }
+    to {
+        box-shadow: 0 0 30px #ff00ff;
+    }
+}
+
+/* Automatically play menu sound on page load */
