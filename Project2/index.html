@@ -17,6 +17,8 @@
         <button onclick="startGame('country')">country</button>
     </div>
 
+
+    
     <!-- Game Container -->
     <div class="game-container" style="display: none;">
         <h2>Memory Match Game</h2>
@@ -31,9 +33,14 @@
     <div class="game-over" style="display: none;">
         <p id="game-over-message"></p>
         <p>Your Score: <span id="final-score"></span></p>
+        <div id="gif-container">
+            <img id="game-over-gif" src="https://media.giphy.com/media/RHEGP4TpkhrQTFCZE4/giphy.gif?cid=ecf05e471kwa5dvgvk1xokz7zmx0qfgcjjvcgrcty1g6cykl&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Game Over" style="display: none;">
+            <img id="game-win-gif" src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExeWFocmRkYnV5aWJyZHlpYmJkZDk3NXNzejVibDdxa3NsaHZ4dWU2NCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xUA7aRXez8Do8SZOSI/giphy.gif" alt="You Win!" style="display: none;">
+        </div>
+        
         <button onclick="restartGame()">Play Again</button>
     </div>
-    <img id="game-over-gif" style="display: none; width: 200px; height: auto;" />
+   <!-- Game Over & Win GIFs -->
 
     <script src="game.js"></script>
 </body>
