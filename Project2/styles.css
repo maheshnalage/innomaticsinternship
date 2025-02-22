@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 body {
     font-family: 'Press Start 2P', cursive;
     display: flex;
@@ -79,7 +81,7 @@ button:hover {
 .card {
     width: 100%;
     aspect-ratio: 1 / 1;
-    background-color: #3498db;
+    background-color: #000000;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -106,20 +108,6 @@ button:hover {
 .win-message {
     text-align: center;
     margin-top: 20px;
-    color: #2ecc71;
-    text-shadow: 0 0 10px #2ecc71;
-    animation: winGlow 1.5s infinite alternate;
-}
-
-.game-over {
-    text-align: center;
-    margin-top: 20px;
-    color: red;
-    text-shadow: 0 0 10px red;
-    animation: gameOverGlow 1.5s infinite alternate;
-}
-
-.game-over.win {
     color: #2ecc71;
     text-shadow: 0 0 10px #2ecc71;
     animation: winGlow 1.5s infinite alternate;
@@ -176,3 +164,56 @@ button:hover {
     }
 }
 
+/* Timer Styling */
+#time {
+    font-size: 2rem;
+    color: white;
+    font-weight: bold;
+    transition: color 0.5s ease-in-out;
+}
+
+#time.warning {
+    color: red !important;
+    animation: blink 0.8s infinite alternate ease-in-out;
+}
+
+@keyframes blink {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: scale(1.2);
+        opacity: 0.5;
+    }
+}
+
+/* Game Over Message */
+.game-over {
+    text-align: center;
+    color: red;
+    text-shadow: 0 0 10px red;
+    animation: gameOverGlow 1.5s infinite alternate;
+}
+
+.game-over.win {
+    color: green;
+    text-shadow: 0 0 10px green;
+    animation: winGlow 1.5s infinite alternate;
+}
+
+/* Score & Game Over GIF */
+#score-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* 🏆 Game Over GIF Centered Below Score */
+#game-over-gif {
+    display: none; /* Hide GIF initially */
+    width: 200px;
+    height: auto;
+    margin-top: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
