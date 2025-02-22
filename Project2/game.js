@@ -20,8 +20,12 @@ const categories = {
     emojis: ['😊', '😂', '😍', '😎', '🥺', '😭', '😜', '😏'],
     animals: ['🐶', '🐱', '🐹', '🐯', '🦁', '🐵', '🐧', '🐰'],
     planets: ['🌗', '🌑', '🌕', '🌞', '🪐', '🌙', '🌒', '🌍'],
-    country: ['🇮🇳🕌', '🇺🇸🗽', '🇬🇧🏰', '🇮🇹🍕', '🇯🇵🎌', '🇨🇦🍁', '🇨🇳🐉', '🇰🇷🥢']
+    country: ['🇮🇳', '🇺🇸', '🇬🇧', '🇮🇹', '🇯🇵', '🇨🇦', '🇨🇳', '🇰🇷']
 };
+
+// Get references to GIF elements
+const gameOverGif = document.getElementById('game-over-gif');
+const gameWinGif = document.getElementById('game-win-gif');
 
 let gameGrid = [];
 let flippedCards = [];
@@ -37,7 +41,9 @@ function showGameMenu() {
     document.querySelector('.game-container').style.display = 'none';
     document.querySelector('.game-over').style.display = 'none';
 
-    document.getElementById('game-over-gif').style.display = 'none'; // Hide GIF
+    // Hide both GIFs when returning to menu
+    gameOverGif.style.display = 'none';
+    gameWinGif.style.display = 'none';
 
     if (menuMusic.paused) {
         menuMusic.currentTime = 0;
@@ -153,6 +159,7 @@ function startTimer() {
     }, 1000);
 }
 
+// Function to handle game win or lose
 function gameOver(win) {
     clearInterval(timerInterval);
     gameOverSound.play();
@@ -163,18 +170,25 @@ function gameOver(win) {
     document.getElementById('game-over-message').innerText = win ? 'You Win!' : 'Game Over';
     document.getElementById('game-over-message').style.color = win ? 'green' : 'red';
 
-    // Show GIF below score
-    const gameOverGif = document.getElementById('game-over-gif');
-    gameOverGif.src = win ? 'https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExeWFocmRkYnV5aWJyZHlpYmJkZDk3NXNzejVibDdxa3NsaHZ4dWU2NCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xUA7aRXez8Do8SZOSI/giphy.gif' : 'https://tenor.com/view/pepe-loser-gif-26920875https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExY2d4bHJ1Y2poY2cxanE0eWxldHU5MHB4eHQ1OGZoZHcyeXU5d29qdyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/JUSwkiO1Eh5K43ruN0/giphy.gif';
-    gameOverGif.style.display = 'block';
+    // Show appropriate GIF
+    if (win) {
+        gameWinGif.style.display = 'block';  // Show win GIF
+        gameOverGif.style.display = 'none';  // Hide game over GIF
+    } else {
+        gameOverGif.style.display = 'block'; // Show game over GIF
+        gameWinGif.style.display = 'none';   // Hide win GIF
+    }
 }
 
+// Restart the game
 function restartGame() {
     showGameMenu();
 }
 
+// Exit the game
 function exitGame() {
     showGameMenu();
 }
 
+// Initialize the game menu
 window.addEventListener('DOMContentLoaded', showGameMenu);
