@@ -97,7 +97,7 @@ button:hover {
 }
 
 .card.matched {
-    background-color: #012b37;
+    background-color: #ece9e9;
 }
 
 .score, .timer {
@@ -164,7 +164,7 @@ button:hover {
     }
 }
 
-/* Timer Styling */
+
 #time {
     font-size: 2rem;
     color: rgb(239, 161, 66);
@@ -188,7 +188,7 @@ button:hover {
     }
 }
 
-/* Game Over Message */
+
 .game-over {
     text-align: center;
     color: red;
@@ -202,13 +202,13 @@ button:hover {
     animation: winGlow 1.5s infinite alternate;
 }
 
-/* Score & Game Over GIF */
+
 #score-container {
     text-align: center;
     margin-top: 20px;
 }
 
-/* Game Over GIF Centered Below Score */
+
 #game-over-gif, #game-win-gif {
     width: 250px;
     height: auto;
