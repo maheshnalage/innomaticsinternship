@@ -93,11 +93,11 @@ button:hover {
 }
 
 .card.flipped {
-    background-color: #2ecc71;
+    background-color: #70707d;
 }
 
 .card.matched {
-    background-color: #2ecc71;
+    background-color: #012b37;
 }
 
 .score, .timer {
@@ -167,7 +167,7 @@ button:hover {
 /* Timer Styling */
 #time {
     font-size: 2rem;
-    color: white;
+    color: rgb(239, 161, 66);
     font-weight: bold;
     transition: color 0.5s ease-in-out;
 }
@@ -208,12 +208,12 @@ button:hover {
     margin-top: 20px;
 }
 
-/* 🏆 Game Over GIF Centered Below Score */
-#game-over-gif {
-    display: none; /* Hide GIF initially */
-    width: 200px;
+/* Game Over GIF Centered Below Score */
+#game-over-gif, #game-win-gif {
+    width: 250px;
     height: auto;
     margin-top: 15px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    display: none;
 }
