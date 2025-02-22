@@ -8,39 +8,47 @@ let gameOverSound = new Audio('game-over-sound.mp3');
 menuMusic.loop = true;
 menuMusic.volume = 0.5;
 
+document.addEventListener('click', () => {
+    if (menuMusic.paused) {
+        menuMusic.play().catch(error => console.log('Audio playback failed:', error));
+    }
+}, { once: true });
+
 // Categories for the game
 const categories = {
     fruits: ['🍎', '🍌', '🍇', '🍍', '🍉', '🍓', '🍑', '🍒'],
     emojis: ['😊', '😂', '😍', '😎', '🥺', '😭', '😜', '😏'],
     animals: ['🐶', '🐱', '🐹', '🐯', '🦁', '🐵', '🐧', '🐰'],
     planets: ['🌗', '🌑', '🌕', '🌞', '🪐', '🌙', '🌒', '🌍'],
-    country: ['🇮🇳', '🇺🇸', '🇬🇧', '🇮🇹', '🇯🇵', '🇨🇦', '🇨🇳', '🇰🇷']
+    country: ['🇮🇳🕌', '🇺🇸🗽', '🇬🇧🏰', '🇮🇹🍕', '🇯🇵🎌', '🇨🇦🍁', '🇨🇳🐉', '🇰🇷🥢']
 };
 
 let gameGrid = [];
 let flippedCards = [];
 let matchedCards = [];
 let score = 0;
-let timeRemaining = 30;
+let timeRemaining = 20;
 let timerInterval;
 let countdownWarningPlayed = false;
 
-// Play menu music when on the game menu
+// Show game menu
 function showGameMenu() {
     document.querySelector('.landing-page').style.display = 'block';
     document.querySelector('.game-container').style.display = 'none';
     document.querySelector('.game-over').style.display = 'none';
 
-    // Ensure menu music plays when the menu is visible
-    menuMusic.currentTime = 0; // Restart music
-    menuMusic.play().catch(error => console.log('Audio playback failed:', error));
+    document.getElementById('game-over-gif').style.display = 'none'; // Hide GIF
+
+    if (menuMusic.paused) {
+        menuMusic.currentTime = 0;
+        menuMusic.play().catch(error => console.log('Audio playback failed:', error));
+    }
 }
 
-// Start the game with the selected category
+// Start the game
 function startGame(category) {
-    menuMusic.pause(); // Stop menu music when the game starts
+    menuMusic.pause();
 
-    // Reset game state
     gameGrid = createGameGrid(category);
     gameGrid = shuffle(gameGrid);
     flippedCards = [];
@@ -48,36 +56,31 @@ function startGame(category) {
     score = 0;
     countdownWarningPlayed = false;
 
-    // Render cards
     renderCards(gameGrid);
 
-    // Update UI
     document.querySelector('.landing-page').style.display = 'none';
     document.querySelector('.game-container').style.display = 'block';
 
     document.getElementById('score').innerText = score;
-    timeRemaining = 30;
+    timeRemaining = 20;
     document.getElementById('time').innerText = timeRemaining;
     document.getElementById('time').classList.remove('warning');
 
-    // Start the timer
+    clearInterval(timerInterval);
     startTimer();
 }
 
-// Create the game grid based on the selected category
 function createGameGrid(category) {
-    return [...categories[category], ...categories[category]];  // Make pairs of cards
+    return [...categories[category], ...categories[category]];
 }
 
-// Shuffle the array of cards
 function shuffle(array) {
     return array.sort(() => Math.random() - 0.5);
 }
 
-// Render the cards on the screen
 function renderCards(grid) {
     const container = document.getElementById('cards-container');
-    container.innerHTML = '';  // Clear any previous cards
+    container.innerHTML = '';
 
     grid.forEach((item, index) => {
         const card = document.createElement('div');
@@ -89,13 +92,10 @@ function renderCards(grid) {
     });
 }
 
-// Handle card clicks and flip logic
 function handleCardClick(event) {
-    flipSound.play(); // Play flip sound
-
+    flipSound.play();
     const card = event.target;
 
-    // Prevent flipping if already flipped or matched
     if (flippedCards.length < 2 && !card.classList.contains('flipped') && !card.classList.contains('matched')) {
         card.classList.add('flipped');
         card.innerText = card.getAttribute('data-value');
@@ -107,17 +107,19 @@ function handleCardClick(event) {
     }
 }
 
-// Check for match between two flipped cards
 function checkForMatch() {
     const [firstCard, secondCard] = flippedCards;
     if (firstCard.getAttribute('data-value') === secondCard.getAttribute('data-value')) {
-        matchSound.play();  // Play match sound
+        matchSound.play();
         firstCard.classList.add('matched');
         secondCard.classList.add('matched');
         score += 10;
         document.getElementById('score').innerText = score;
         matchedCards.push(firstCard, secondCard);
         flippedCards = [];
+
+        timeRemaining += 2;
+        document.getElementById('time').innerText = timeRemaining;
     } else {
         setTimeout(() => {
             firstCard.classList.remove('flipped');
@@ -128,65 +130,51 @@ function checkForMatch() {
         }, 1000);
     }
 
-    checkForGameOver();
-}
-
-// Check if the game is over (all cards matched)
-function checkForGameOver() {
     if (matchedCards.length === gameGrid.length) {
-        clearInterval(timerInterval);
-        gameOver(true);  // Game Over - You Win
+        gameOver(true);
     }
 }
 
-// Start the countdown timer
 function startTimer() {
     timerInterval = setInterval(() => {
         timeRemaining--;
         document.getElementById('time').innerText = timeRemaining;
 
-        // Trigger warning sound if time is less than or equal to 10 seconds
         if (timeRemaining <= 10 && !countdownWarningPlayed) {
             countdownSound.play();
             countdownWarningPlayed = true;
-            document.getElementById('time').classList.add('warning');  // Change timer to warning color
+            document.getElementById('time').classList.add('warning');
         }
 
-        if (timeRemaining === 0) {
+        if (timeRemaining <= 0) {
             clearInterval(timerInterval);
-            gameOver(false);  // Game Over - Time's Up
+            gameOver(false);
         }
     }, 1000);
 }
 
-// End the game and show Game Over screen with animation
 function gameOver(win) {
-    gameOverSound.play();  // Play game over sound
+    clearInterval(timerInterval);
+    gameOverSound.play();
     const gameOverScreen = document.querySelector('.game-over');
     gameOverScreen.style.display = 'block';
-    gameOverScreen.classList.add('game-over-animation');  // CSS class for animation
     document.querySelector('.game-container').style.display = 'none';
     document.getElementById('final-score').innerText = score;
     document.getElementById('game-over-message').innerText = win ? 'You Win!' : 'Game Over';
-    if (win) {
-        gameOverScreen.classList.add('win');
-    } else {
-        gameOverScreen.classList.remove('win');
-    }
+    document.getElementById('game-over-message').style.color = win ? 'green' : 'red';
+
+    // Show GIF below score
+    const gameOverGif = document.getElementById('game-over-gif');
+    gameOverGif.src = win ? 'https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExeWFocmRkYnV5aWJyZHlpYmJkZDk3NXNzejVibDdxa3NsaHZ4dWU2NCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xUA7aRXez8Do8SZOSI/giphy.gif' : 'https://tenor.com/view/pepe-loser-gif-26920875https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExY2d4bHJ1Y2poY2cxanE0eWxldHU5MHB4eHQ1OGZoZHcyeXU5d29qdyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/JUSwkiO1Eh5K43ruN0/giphy.gif';
+    gameOverGif.style.display = 'block';
 }
 
-// Restart the game
 function restartGame() {
     showGameMenu();
 }
 
-// Exit the game
 function exitGame() {
     showGameMenu();
 }
 
-// Initialize the game menu on page load
 window.addEventListener('DOMContentLoaded', showGameMenu);
-window.addEventListener('load', () => {
-    menuMusic.play().catch(error => console.log('Audio playback failed:', error));
-});
