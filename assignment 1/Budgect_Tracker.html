@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💵 Budget Tracker 2025</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #F0F0F0, #D3B897);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        header {
+            background-color: #FFD700;
+            padding: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            color: white;
+        }
+
+        .intro-section {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            width: 80%;
+            max-width: 800px;
+        }
+
+        section {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            width: 80%;
+            max-width: 800px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .box {
+            width: 75%;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            box-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+            margin-bottom: 20px;
+            border: 4px solid #FFD600; 
+            position: relative;
+            z-index: 1;
+        }
+
+        .box h2 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        table, th, td {
+            border: 1px solid #FFD700;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #FFD700;
+            color: black;
+            padding: 12px 20px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: background-color 0.3s ease-in-out;
+            font-size: 18px;
+        }
+
+        button:hover {
+            background-color: #FFC107;
+        }
+
+        input, select {
+            padding: 12px;
+            margin: 8px;
+            border-radius: 8px;
+            border: 2px solid #FFD700;
+            width: 90%;
+            font-size: 16px;
+            background-color: #fff;
+            color: #333;
+        }
+
+        input[type="radio"] {
+            width: auto;
+        }
+
+        img {
+            width: 30%; 
+            max-width: 200px;
+            display: block;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #D3B897;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .scrollable-table {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        /* GIF positioning */
+        .gif-container {
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 20px;  
+            width: 100%;
+            z-index: -1; 
+        }
+
+        .gif-container img {
+            width: 25%; 
+            max-width: 150px; 
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        💵 Budget Tracker 2025
+    </header>
+
+
+    <div class="container">
+        <div class="gif-container">
+            <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExeG9yNGlpMzBubDM5Mm12NXZ3eHc3bzc0ZmRvam15c3cyYzR1YWN6cyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xTiTnqUxyWbsAXq7Ju/giphy.gif" alt="Funny Money GIF">
+            <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExeG9yNGlpMzBubDM5Mm12NXZ3eHc3bzc0ZmRvam15c3cyYzR1YWN6cyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xTiTnqUxyWbsAXq7Ju/giphy.gif" alt="Funny Money GIF">
+        </div>
+    </div>
+
+    
+    <div class="container">
+        <div class="box" style="padding-bottom: 50px; border: 1px solid #FFD700;">
+            <h2>🎰 Track Your Money Like a Pro!</h2>
+            <p>Manage your finances with ease, and track your expenses effortlessly!</p>
+        </div>
+    </div>
+
+    
+    <div class="container">
+      
+        <div class="box">
+            <h2>💰 Add New Income or Expense</h2>
+            <form id="budget-form">
+                <label for="amount">Amount: </label><br>
+                <input type="number" id="amount" required><br>
+
+                <label for="category">Category: </label><br>
+                <select id="category">
+                    <option>Food 🍕</option>
+                    <option>Transportation 🚗</option>
+                    <option>Entertainment 🎭</option>
+                    <option>Shopping 🛍️</option>
+                    <option>Utilities 💡</option>
+                    <option>Other ✍️</option>
+                </select><br>
+
+                <label for="description">Description: </label><br>
+                <input type="text" id="description" placeholder="Enter details"><br>
+
+                <label for="date">Date: </label><br>
+                <input type="date" id="date" required><br>
+
+                <label for="type">Type: </label><br>
+                <input type="radio" name="type" value="Income" checked> Income
+                <input type="radio" name="type" value="Expense"> Expense<br><br>
+
+                <button type="submit">Add Entry</button>
+            </form>
+        </div>
+
+      
+        <div class="box">
+            <h2>📑 Budget Summary</h2>
+            <div class="scrollable-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Amount</th>
+                            <th>Description</th>
+                            <th>Date</th>
+                            <th>Type</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="budget-summary"></tbody>
+                </table>
+            </div>
+            <h3>Total Spent: <span id="total-spent">0</span></h3>
+            <h3>Total Balance: <span id="total-balance">0</span></h3>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Budget Tracker - Plan Smart, Spend Smart! 💼</p>
+    </footer>
+
+    <script>
+        let totalBalance = 0;
+        let totalSpent = 0;
+
+        document.getElementById('budget-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            let amount = parseFloat(document.getElementById('amount').value);
+            let category = document.getElementById('category').value;
+            let description = document.getElementById('description').value;
+            let date = document.getElementById('date').value;
+            let type = document.querySelector('input[name="type"]:checked').value;
+
+            let status = type === "Income" ? "Completed" : "Pending";
+            
+            let row = `<tr>
+                <td>${category}</td>
+                <td>${amount}</td>
+                <td>${description}</td>
+                <td>${date}</td>
+                <td>${type}</td>
+                <td>${status}</td>
+                <td><button onclick="editRow(this)">Edit</button> <button onclick="deleteRow(this)">Delete</button></td>
+            </tr>`;
+            document.getElementById('budget-summary').innerHTML += row;
+
+            if (type === "Expense") {
+                totalSpent += amount;
+                totalBalance -= amount;
+            } else {
+                totalBalance += amount;
+            }
+
+            document.getElementById('total-spent').textContent = totalSpent;
+            document.getElementById('total-balance').textContent = totalBalance;
+
+            let sound = new Audio('assets/cash-register.mp3'); 
+            sound.play();
+
+           
+            document.getElementById('budget-form').reset();
+        });
+
+        function editRow(button) {
+            let row = button.parentElement.parentElement;
+            let cells = row.children;
+
+            
+            let oldAmount = parseFloat(cells[1].textContent);
+            let oldType = cells[4].textContent;
+
+           
+            if (oldType === "Expense") {
+                totalSpent -= oldAmount;
+                totalBalance += oldAmount;
+            } else {
+                totalBalance -= oldAmount;
+            }
+
+       
+            document.getElementById('amount').value = cells[1].textContent;
+            document.getElementById('description').value = cells[2].textContent;
+            document.getElementById('date').value = cells[3].textContent;
+
+            if (cells[4].textContent === "Income") {
+                document.querySelector('input[value="Income"]').checked = true;
+            } else {
+                document.querySelector('input[value="Expense"]').checked = true;
+            }
+
+          
+            row.remove();
+
+            document.getElementById('total-spent').textContent = totalSpent;
+            document.getElementById('total-balance').textContent = totalBalance;
+        }
+
+        function deleteRow(button) {
+            let row = button.parentElement.parentElement;
+            let cells = row.children;
+            let amount = parseFloat(cells[1].textContent);
+            let type = cells[4].textContent;
+
+          
+            if (type === "Expense") {
+                totalSpent -= amount;
+                totalBalance += amount;
+            } else {
+                totalBalance -= amount;
+            }
+
+          
+            row.remove();
+
+    
+            document.getElementById('total-spent').textContent = totalSpent;
+            document.getElementById('total-balance').textContent = totalBalance;
+        }
+    </script>
+</body>
+</html>
